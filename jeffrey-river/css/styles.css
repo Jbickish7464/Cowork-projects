@@ -4,21 +4,22 @@
    ========================================================================== */
 
 :root {
-  /* Core palette — misty sage, watercolor blue, leather brown, warm neutrals */
-  --sage:         #9bb08a;
-  --sage-light:   #c4d0b5;
-  --sage-dark:    #6f8567;
+  /* Core palette — River & Ridge brand */
+  --sage:         #9CAF9A;   /* Dusty Sage */
+  --sage-light:   #c8d5c7;
+  --sage-dark:    #7a8f78;
 
-  --river:        #7ea3bf;   /* medium watercolor blue */
-  --river-light:  #b9d2e1;
-  --river-deep:   #4e738f;
+  --river:        #7FA3B5;   /* Misty Blue */
+  --river-light:  #b3ccd8;
+  --river-deep:   #5a8498;
 
-  --leather:      #8b6a4a;   /* leather brown */
-  --leather-dark: #5c4530;
+  --leather:      #6b4c34;   /* warm brown (mid-tone of bark) */
+  --leather-dark: #3B2A1E;   /* Deep Bark Brown */
 
   --cream:        #f5f0e6;   /* warm off-white */
   --parchment:    #ebe3d2;
-  --warm-grey:    #a8a093;
+  --stone:        #C9BBAA;   /* Warm Stone */
+  --warm-grey:    #8A8F94;   /* Soft Ash Gray */
   --charcoal:     #3a3a36;
 
   /* Typography */
@@ -160,6 +161,13 @@ p { margin: 0 0 1em; }
   font-weight: 500;
   color: var(--charcoal);
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.nav__brand img {
+  height: 38px;
+  width: auto;
 }
 .nav__brand span { color: var(--river-deep); }
 .nav__links {
@@ -669,6 +677,26 @@ p { margin: 0 0 1em; }
 @media (max-width: 768px) {
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
+
+/* ---------- Page-specific accent tints ---------- */
+/* Home — warm neutral (default) */
+.page-home .page-header { background: linear-gradient(135deg, var(--parchment), var(--cream)); }
+
+/* Music — subtle blue tint */
+.page-music .page-header { background: linear-gradient(135deg, var(--river-light) 0%, var(--cream) 100%); }
+.page-music .signup { background: rgba(127, 163, 181, 0.08); }
+
+/* About — subtle sage tint */
+.page-about .page-header { background: linear-gradient(135deg, var(--sage-light) 0%, var(--cream) 100%); }
+.page-about .signup { background: rgba(156, 175, 154, 0.08); }
+
+/* Gigs — subtle stone/warm tint */
+.page-gigs .page-header { background: linear-gradient(135deg, var(--stone) 0%, var(--cream) 100%); }
+.page-gigs .signup { background: rgba(201, 187, 170, 0.1); }
+
+/* Merch — subtle sage tint */
+.page-merch .page-header { background: linear-gradient(135deg, var(--sage-light) 0%, var(--parchment) 100%); }
+.page-merch .signup { background: rgba(156, 175, 154, 0.08); }
 
 /* ---------- Utilities ---------- */
 .mt-2 { margin-top: 2rem; }

@@ -10,6 +10,7 @@
   --river:        #7A8C99;   /* Faded river blue */
   --sand:         #EAE3D9;   /* Warm sand */
   --moss:         #8A9E82;   /* Lighter moss green */
+  --warmgrey:     #8B8178;   /* Warm stone grey — about page accent */
 
   /* Darker accents for text */
   --bark:         #3B2A1E;   /* Deep bark */
@@ -101,7 +102,8 @@ p { margin: 0 0 1em; }
 .color-block--river::before  { background: var(--river); }
 .color-block--sand::before   { background: var(--sand); }
 .color-block--moss::before    { background: var(--moss); }
-.color-block--leather::before { background: var(--leather); }
+.color-block--leather::before  { background: var(--leather); }
+.color-block--warmgrey::before { background: var(--warmgrey); }
 
 /* Block behind headings — small accent rectangle */
 .color-block--heading::before {
@@ -271,19 +273,20 @@ p { margin: 0 0 1em; }
 .nav__links a {
   display: block;
   color: var(--white);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   position: relative;
-  padding: 0.65em 1em 0.85em;
-  /* Pick shape: wide rounded top, flat bottom */
-  border-radius: 50% 50% 4px 4px / 60% 60% 4px 4px;
+  padding: 0.9em 0.9em 0.7em;
+  /* Pick shape: ~3/4 visible — rounded top tapering toward a point at bottom */
+  border-radius: 46% 46% 18% 18% / 50% 50% 22% 22%;
   background: var(--sage);
   transition: transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
   text-align: center;
-  min-width: 62px;
+  min-width: 60px;
   line-height: 1.2;
+  clip-path: polygon(0% 0%, 100% 0%, 95% 85%, 50% 100%, 5% 85%);
 }
 .nav__links a:hover {
   transform: translateY(-3px);
@@ -293,7 +296,7 @@ p { margin: 0 0 1em; }
 /* Per-page pick colors */
 .nav__links li:nth-child(1) a { background: var(--sage); }       /* Home = sage */
 .nav__links li:nth-child(2) a { background: var(--river); }      /* Music = river blue */
-.nav__links li:nth-child(3) a { background: var(--clay); }       /* About = clay */
+.nav__links li:nth-child(3) a { background: var(--warmgrey); }   /* About = warm grey */
 .nav__links li:nth-child(4) a { background: var(--leather); }    /* Gigs = leather */
 .nav__links li:nth-child(5) a { background: var(--moss); }       /* Merch = moss */
 /* Active state — lift + stronger shadow */
@@ -304,7 +307,7 @@ p { margin: 0 0 1em; }
 /* Hover brightness */
 .nav__links li:nth-child(1) a:hover { background: #5D6D64; }
 .nav__links li:nth-child(2) a:hover { background: #677C89; }
-.nav__links li:nth-child(3) a:hover { background: #9A7556; }
+.nav__links li:nth-child(3) a:hover { background: #746B63; }
 .nav__links li:nth-child(4) a:hover { background: #3A2520; }
 .nav__links li:nth-child(5) a:hover { background: #728A6C; }
 
@@ -478,7 +481,7 @@ p { margin: 0 0 1em; }
 }
 /* Subtle color accent under page headers */
 .page-music .page-header { border-bottom: 3px solid var(--river); }
-.page-about .page-header { border-bottom: 3px solid var(--sage); }
+.page-about .page-header { border-bottom: 3px solid var(--warmgrey); }
 .page-gigs .page-header  { border-bottom: 3px solid var(--clay); }
 .page-merch .page-header  { border-bottom: 3px solid var(--moss); }
 

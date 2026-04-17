@@ -1,26 +1,27 @@
 /* ==========================================================================
-   Jeffrey River — Acoustic Folk
-   Design System: earthy, nature-inspired, vintage pastel tones
+   Jeffrey River — River & Ridge Design System
+   Modern folk aesthetic · parchment textures · earthy color blocks
    ========================================================================== */
 
 :root {
-  /* Core palette — River & Ridge brand */
+  /* Core palette — River & Ridge brand (exact hex from style guide) */
+  --bark:         #3B2A1E;   /* Deep Bark Brown */
   --sage:         #9CAF9A;   /* Dusty Sage */
-  --sage-light:   #c8d5c7;
-  --sage-dark:    #7a8f78;
-
   --river:        #7FA3B5;   /* Misty Blue */
-  --river-light:  #b3ccd8;
-  --river-deep:   #5a8498;
-
-  --leather:      #6b4c34;   /* warm brown (mid-tone of bark) */
-  --leather-dark: #3B2A1E;   /* Deep Bark Brown */
-
-  --cream:        #f5f0e6;   /* warm off-white */
-  --parchment:    #ebe3d2;
   --stone:        #C9BBAA;   /* Warm Stone */
-  --warm-grey:    #8A8F94;   /* Soft Ash Gray */
+  --ash:          #8A8F94;   /* Soft Ash Gray */
+
+  /* Extended palette */
+  --bark-mid:     #6b4c34;
+  --sage-light:   #dce5da;
+  --sage-pale:    #edf1ec;
+  --river-light:  #c8dbe4;
+  --river-pale:   #e8f0f4;
+  --stone-light:  #e0d8cc;
+  --cream:        #f5f0e6;
+  --parchment:    #ece5d5;
   --charcoal:     #3a3a36;
+  --white:        #faf8f3;
 
   /* Typography */
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -47,12 +48,15 @@ body {
   line-height: 1.65;
   color: var(--charcoal);
   background: var(--cream);
+  /* Parchment texture — subtle noise pattern */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 img { max-width: 100%; display: block; }
-a { color: var(--river-deep); text-decoration: none; transition: color .2s var(--ease); }
-a:hover { color: var(--leather); }
+a { color: var(--river); text-decoration: none; transition: color .2s var(--ease); }
+a:hover { color: var(--bark-mid); }
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 500;
@@ -78,18 +82,34 @@ p { margin: 0 0 1em; }
 .section--cream { background: var(--cream); }
 .section--parchment { background: var(--parchment); }
 .section--sage {
-  background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
-  color: var(--cream);
+  background: var(--sage);
+  color: var(--white);
 }
-.section--sage h1, .section--sage h2, .section--sage h3 { color: var(--cream); }
+.section--sage h1, .section--sage h2, .section--sage h3 { color: var(--white); }
+.section--sage .signup { background: rgba(255,255,255,0.12); }
+.section--sage .signup p { color: var(--sage-light); }
+
+.section--river {
+  background: var(--river);
+  color: var(--white);
+}
+.section--river h1, .section--river h2, .section--river h3 { color: var(--white); }
+
+.section--stone { background: var(--stone-light); }
+.section--bark {
+  background: var(--bark);
+  color: var(--parchment);
+}
+.section--bark h2, .section--bark h3 { color: var(--cream); }
 
 .text-center { text-align: center; }
 .eyebrow {
   font-family: var(--font-hand);
-  font-size: 1.5rem;
-  color: var(--leather);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--bark);
   display: inline-block;
   margin-bottom: 0.25em;
+  font-weight: 500;
 }
 
 /* ---------- Buttons ---------- */
@@ -108,13 +128,13 @@ p { margin: 0 0 1em; }
   text-align: center;
 }
 .btn--primary {
-  background: var(--leather);
+  background: var(--bark);
   color: var(--cream);
-  border-color: var(--leather);
+  border-color: var(--bark);
 }
 .btn--primary:hover {
-  background: var(--leather-dark);
-  border-color: var(--leather-dark);
+  background: var(--bark-mid);
+  border-color: var(--bark-mid);
   color: var(--cream);
   transform: translateY(-1px);
 }
@@ -137,21 +157,46 @@ p { margin: 0 0 1em; }
   color: var(--charcoal);
 }
 
+/* ---------- Social icon bar (top, like Hollow Coves) ---------- */
+.social-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 0.75rem 0;
+  background: var(--bark);
+}
+.social-bar a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245, 240, 230, 0.3);
+  display: grid;
+  place-items: center;
+  transition: all .2s var(--ease);
+}
+.social-bar a:hover {
+  border-color: var(--cream);
+  background: rgba(245, 240, 230, 0.1);
+  transform: translateY(-1px);
+}
+.social-bar svg { width: 16px; height: 16px; fill: var(--parchment); }
+.social-bar a:hover svg { fill: var(--cream); }
+
 /* ---------- Header / Nav ---------- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(245, 240, 230, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(168, 160, 147, 0.2);
+  background: rgba(245, 240, 230, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 187, 170, 0.3);
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem var(--gutter);
+  padding: 0.75rem var(--gutter);
   max-width: var(--max-width);
   margin: 0 auto;
 }
@@ -166,10 +211,10 @@ p { margin: 0 0 1em; }
   gap: 0.6rem;
 }
 .nav__brand img {
-  height: 38px;
+  height: 52px;
   width: auto;
 }
-.nav__brand span { color: var(--river-deep); }
+.nav__brand span { color: var(--river); }
 .nav__links {
   display: flex;
   gap: 2rem;
@@ -179,9 +224,10 @@ p { margin: 0 0 1em; }
 }
 .nav__links a {
   color: var(--charcoal);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   position: relative;
 }
 .nav__links a::after {
@@ -190,13 +236,13 @@ p { margin: 0 0 1em; }
   bottom: -4px;
   left: 0;
   width: 0;
-  height: 1.5px;
-  background: var(--leather);
+  height: 2px;
+  background: var(--bark-mid);
   transition: width .3s var(--ease);
 }
 .nav__links a:hover::after,
 .nav__links a.active::after { width: 100%; }
-.nav__links a.active { color: var(--leather); }
+.nav__links a.active { color: var(--bark-mid); }
 
 .nav__toggle {
   display: none;
@@ -225,7 +271,7 @@ p { margin: 0 0 1em; }
     flex-direction: column;
     gap: 0;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(168, 160, 147, 0.2);
+    border-bottom: 1px solid rgba(201, 187, 170, 0.3);
     transform: translateY(-10px);
     opacity: 0;
     pointer-events: none;
@@ -238,28 +284,37 @@ p { margin: 0 0 1em; }
   }
   .nav__links li {
     padding: 0.75rem var(--gutter);
-    border-top: 1px solid rgba(168, 160, 147, 0.15);
+    border-top: 1px solid rgba(201, 187, 170, 0.15);
   }
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (photo-based, like Hyslop) ---------- */
 .hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: var(--charcoal);
+}
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+/* Placeholder gradient when no photo is uploaded yet */
+.hero--placeholder {
   background: linear-gradient(135deg, #dbe6d4 0%, #c4d2dd 50%, #d9c8b4 100%);
 }
-.hero::before {
+.hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(ellipse at 20% 30%, rgba(155, 176, 138, 0.4) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 70%, rgba(126, 163, 191, 0.4) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(139, 106, 74, 0.15) 0%, transparent 70%);
+  background: linear-gradient(to bottom, rgba(58,58,54,0.15) 0%, rgba(58,58,54,0.4) 100%);
   pointer-events: none;
 }
 .hero__inner {
@@ -269,23 +324,27 @@ p { margin: 0 0 1em; }
   padding: 4rem var(--gutter);
   max-width: 800px;
 }
-.hero__eyebrow {
-  font-family: var(--font-hand);
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--leather);
-  margin-bottom: 0.5rem;
-}
 .hero h1 {
   font-size: clamp(3rem, 8vw, 5.5rem);
   line-height: 1.05;
   margin-bottom: 0.5rem;
+  color: var(--white);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.hero__eyebrow {
+  font-family: var(--font-hand);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.3);
 }
 .hero__tagline {
   font-size: clamp(1.1rem, 2vw, 1.35rem);
-  color: var(--charcoal);
+  color: var(--cream);
   max-width: 560px;
   margin: 1rem auto 2.25rem;
   font-weight: 300;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.2);
 }
 .hero__cta {
   display: flex;
@@ -293,10 +352,18 @@ p { margin: 0 0 1em; }
   justify-content: center;
   flex-wrap: wrap;
 }
+.hero__cta .btn--primary { background: var(--bark); border-color: var(--bark); }
+.hero__cta .btn--ghost {
+  color: var(--cream);
+  border-color: var(--cream);
+}
+.hero__cta .btn--ghost:hover {
+  background: var(--cream);
+  color: var(--charcoal);
+}
 
 /* ---------- Page header (non-home) ---------- */
 .page-header {
-  background: linear-gradient(135deg, var(--sage-light), var(--river-light));
   padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
   text-align: center;
 }
@@ -307,6 +374,11 @@ p { margin: 0 0 1em; }
   margin: 0 auto;
   font-size: 1.1rem;
 }
+/* Page-specific header backgrounds — DISTINCT color blocks */
+.page-music .page-header { background: var(--river-pale); }
+.page-about .page-header { background: var(--sage-pale); }
+.page-gigs .page-header  { background: var(--stone-light); }
+.page-merch .page-header  { background: var(--parchment); }
 
 /* ---------- Cards & Grid ---------- */
 .grid {
@@ -315,8 +387,8 @@ p { margin: 0 0 1em; }
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 .card {
-  background: var(--cream);
-  border: 1px solid rgba(168, 160, 147, 0.25);
+  background: var(--white);
+  border: 1px solid rgba(201, 187, 170, 0.3);
   border-radius: var(--radius-lg);
   padding: 2rem;
   transition: transform .3s var(--ease), box-shadow .3s var(--ease);
@@ -326,7 +398,7 @@ p { margin: 0 0 1em; }
   box-shadow: 0 12px 40px rgba(58, 58, 54, 0.08);
 }
 .card h3 {
-  color: var(--river-deep);
+  color: var(--river);
   margin-bottom: 0.5em;
 }
 .card--image {
@@ -344,7 +416,8 @@ p { margin: 0 0 1em; }
 
 /* ---------- Music Player Placeholder ---------- */
 .player {
-  background: linear-gradient(135deg, var(--river-light), var(--sage-light));
+  background: var(--white);
+  border: 1px solid rgba(201, 187, 170, 0.3);
   border-radius: var(--radius-lg);
   padding: 2rem;
   display: flex;
@@ -352,16 +425,16 @@ p { margin: 0 0 1em; }
   gap: 1.5rem;
   max-width: 640px;
   margin: 0 auto;
-  box-shadow: 0 8px 30px rgba(78, 115, 143, 0.15);
+  box-shadow: 0 4px 20px rgba(58, 58, 54, 0.06);
 }
 .player__art {
   width: 120px;
   height: 120px;
   border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--river-deep), var(--sage-dark));
+  background: var(--stone);
   display: grid;
   place-items: center;
-  color: var(--cream);
+  color: var(--bark);
   font-family: var(--font-hand);
   font-size: 1.5rem;
   flex-shrink: 0;
@@ -370,9 +443,9 @@ p { margin: 0 0 1em; }
 }
 .player__info { flex: 1; min-width: 0; }
 .player__info h3 { margin: 0 0 0.25em; color: var(--charcoal); }
-.player__info p { margin: 0; color: var(--leather-dark); font-size: 0.95rem; }
+.player__info p { margin: 0; color: var(--ash); font-size: 0.95rem; }
 .player__btn {
-  background: var(--leather);
+  background: var(--bark);
   color: var(--cream);
   border: 0;
   width: 52px;
@@ -386,7 +459,7 @@ p { margin: 0 0 1em; }
   flex-shrink: 0;
 }
 .player__btn:hover {
-  background: var(--leather-dark);
+  background: var(--bark-mid);
   transform: scale(1.08);
 }
 
@@ -397,7 +470,8 @@ p { margin: 0 0 1em; }
 
 /* ---------- Email signup ---------- */
 .signup {
-  background: var(--parchment);
+  background: var(--white);
+  border: 1px solid rgba(201, 187, 170, 0.25);
   border-radius: var(--radius-lg);
   padding: clamp(2rem, 5vw, 3rem);
   text-align: center;
@@ -409,7 +483,7 @@ p { margin: 0 0 1em; }
   font-size: 1.75rem;
   margin-bottom: 0.25em;
 }
-.signup p { color: var(--leather-dark); margin-bottom: 1.5rem; }
+.signup p { color: var(--ash); margin-bottom: 1.5rem; }
 .signup__form {
   display: flex;
   gap: 0.75rem;
@@ -421,7 +495,7 @@ p { margin: 0 0 1em; }
   flex: 1;
   min-width: 200px;
   padding: 0.85em 1.1em;
-  border: 1.5px solid var(--warm-grey);
+  border: 1.5px solid var(--stone);
   border-radius: var(--radius);
   background: var(--cream);
   font-family: var(--font-body);
@@ -431,7 +505,7 @@ p { margin: 0 0 1em; }
 }
 .signup__form input[type="email"]:focus {
   outline: none;
-  border-color: var(--leather);
+  border-color: var(--bark-mid);
 }
 
 /* ---------- Bio / About ---------- */
@@ -442,16 +516,23 @@ p { margin: 0 0 1em; }
   align-items: center;
 }
 .about__image {
-  background: linear-gradient(135deg, var(--sage-light), var(--river-light));
+  background: var(--stone-light);
   border-radius: var(--radius-lg);
   aspect-ratio: 4 / 5;
   display: grid;
   place-items: center;
-  color: var(--leather-dark);
+  color: var(--bark);
   font-family: var(--font-hand);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-align: center;
   padding: 1rem;
+  overflow: hidden;
+}
+.about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
 }
 .about__body p { font-size: 1.1rem; }
 @media (max-width: 768px) {
@@ -476,7 +557,7 @@ p { margin: 0 0 1em; }
   font-weight: 500;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--leather-dark);
+  color: var(--bark);
   margin-bottom: 0.4em;
 }
 .form__field input,
@@ -484,9 +565,9 @@ p { margin: 0 0 1em; }
 .form__field select {
   width: 100%;
   padding: 0.75em 1em;
-  border: 1.5px solid var(--warm-grey);
+  border: 1.5px solid var(--stone);
   border-radius: var(--radius);
-  background: var(--cream);
+  background: var(--white);
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--charcoal);
@@ -497,7 +578,7 @@ p { margin: 0 0 1em; }
 .form__field textarea:focus,
 .form__field select:focus {
   outline: none;
-  border-color: var(--leather);
+  border-color: var(--bark-mid);
 }
 @media (max-width: 600px) {
   .form__row { grid-template-columns: 1fr; }
@@ -511,25 +592,25 @@ p { margin: 0 0 1em; }
   gap: 1.5rem;
   align-items: center;
   padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(168, 160, 147, 0.3);
+  border-bottom: 1px solid rgba(201, 187, 170, 0.3);
 }
 .gig:last-child { border-bottom: 0; }
 .gig__date {
   font-family: var(--font-display);
   font-size: 1.25rem;
-  color: var(--river-deep);
+  color: var(--river);
   min-width: 110px;
 }
 .gig__date span {
   display: block;
   font-size: 0.85rem;
-  color: var(--warm-grey);
+  color: var(--ash);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-family: var(--font-body);
 }
 .gig__details h3 { margin: 0 0 0.2em; font-size: 1.15rem; }
-.gig__details p { margin: 0; color: var(--leather-dark); font-size: 0.95rem; }
+.gig__details p { margin: 0; color: var(--bark-mid); font-size: 0.95rem; }
 .gig__action .btn { font-size: 0.85rem; padding: 0.6em 1.2em; }
 
 .gigs--empty {
@@ -537,7 +618,7 @@ p { margin: 0 0 1em; }
   padding: 3rem 1rem;
   background: var(--parchment);
   border-radius: var(--radius-lg);
-  color: var(--leather-dark);
+  color: var(--bark-mid);
 }
 .gigs--empty p { margin: 0.5em 0; }
 
@@ -553,31 +634,31 @@ p { margin: 0 0 1em; }
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 .merch-item {
-  background: var(--cream);
+  background: var(--white);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(168, 160, 147, 0.25);
+  border: 1px solid rgba(201, 187, 170, 0.25);
 }
 .merch-item__image {
   aspect-ratio: 1;
-  background: linear-gradient(135deg, var(--sage-light), var(--parchment));
+  background: var(--parchment);
   display: grid;
   place-items: center;
-  color: var(--leather-dark);
+  color: var(--bark-mid);
   font-family: var(--font-hand);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-align: center;
   padding: 1rem;
 }
 .merch-item__body { padding: 1.25rem 1.5rem 1.5rem; }
 .merch-item__body h3 { font-size: 1.1rem; margin-bottom: 0.25em; }
-.merch-item__body .price { color: var(--river-deep); font-weight: 500; font-size: 1.1rem; }
+.merch-item__body .price { color: var(--river); font-weight: 500; font-size: 1.1rem; }
 .merch-item__body .coming-soon {
   display: inline-block;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--warm-grey);
+  color: var(--ash);
   background: var(--parchment);
   padding: 0.25em 0.8em;
   border-radius: 999px;
@@ -603,7 +684,7 @@ p { margin: 0 0 1em; }
 .epk-stat__value {
   font-family: var(--font-display);
   font-size: 2rem;
-  color: var(--river-deep);
+  color: var(--river);
   line-height: 1;
   margin-bottom: 0.25em;
 }
@@ -611,12 +692,20 @@ p { margin: 0 0 1em; }
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--leather-dark);
+  color: var(--bark-mid);
+}
+/* Fix email overflow in EPK cards */
+.epk .card .btn,
+.epk .card a.btn {
+  font-size: 0.75rem;
+  padding: 0.6em 1em;
+  word-break: break-all;
+  max-width: 100%;
 }
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: var(--charcoal);
+  background: var(--bark);
   color: var(--parchment);
   padding: 3rem 0 1.5rem;
 }
@@ -628,15 +717,15 @@ p { margin: 0 0 1em; }
 }
 .footer-grid h4 {
   color: var(--cream);
-  font-size: 1rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 1rem;
 }
-.footer-grid a { color: var(--parchment); font-size: 0.95rem; }
-.footer-grid a:hover { color: var(--sage-light); }
+.footer-grid a { color: var(--stone); font-size: 0.95rem; }
+.footer-grid a:hover { color: var(--cream); }
 .footer-grid ul { list-style: none; padding: 0; margin: 0; }
 .footer-grid ul li { margin-bottom: 0.5em; }
 .footer__brand {
@@ -645,7 +734,7 @@ p { margin: 0 0 1em; }
   color: var(--cream);
   margin-bottom: 0.5em;
 }
-.footer__tag { font-family: var(--font-hand); font-size: 1.2rem; color: var(--sage-light); }
+.footer__tag { font-family: var(--font-hand); font-size: 1.4rem; color: var(--sage); }
 .social {
   display: flex;
   gap: 0.75rem;
@@ -661,42 +750,22 @@ p { margin: 0 0 1em; }
   transition: background .2s var(--ease), transform .2s var(--ease);
 }
 .social a:hover {
-  background: var(--sage);
+  background: rgba(245, 240, 230, 0.15);
   transform: translateY(-2px);
 }
-.social svg { width: 18px; height: 18px; fill: var(--parchment); }
+.social svg { width: 18px; height: 18px; fill: var(--stone); }
 .social a:hover svg { fill: var(--cream); }
 .footer__base {
-  border-top: 1px solid rgba(235, 227, 210, 0.15);
+  border-top: 1px solid rgba(235, 227, 210, 0.12);
   padding-top: 1.5rem;
   text-align: center;
   font-size: 0.85rem;
-  color: var(--warm-grey);
+  color: var(--ash);
 }
 
 @media (max-width: 768px) {
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
-
-/* ---------- Page-specific accent tints ---------- */
-/* Home — warm neutral (default) */
-.page-home .page-header { background: linear-gradient(135deg, var(--parchment), var(--cream)); }
-
-/* Music — subtle blue tint */
-.page-music .page-header { background: linear-gradient(135deg, var(--river-light) 0%, var(--cream) 100%); }
-.page-music .signup { background: rgba(127, 163, 181, 0.08); }
-
-/* About — subtle sage tint */
-.page-about .page-header { background: linear-gradient(135deg, var(--sage-light) 0%, var(--cream) 100%); }
-.page-about .signup { background: rgba(156, 175, 154, 0.08); }
-
-/* Gigs — subtle stone/warm tint */
-.page-gigs .page-header { background: linear-gradient(135deg, var(--stone) 0%, var(--cream) 100%); }
-.page-gigs .signup { background: rgba(201, 187, 170, 0.1); }
-
-/* Merch — subtle sage tint */
-.page-merch .page-header { background: linear-gradient(135deg, var(--sage-light) 0%, var(--parchment) 100%); }
-.page-merch .signup { background: rgba(156, 175, 154, 0.08); }
 
 /* ---------- Utilities ---------- */
 .mt-2 { margin-top: 2rem; }
@@ -704,7 +773,7 @@ p { margin: 0 0 1em; }
 .divider {
   width: 80px;
   height: 2px;
-  background: var(--leather);
+  background: var(--bark-mid);
   margin: 1.5rem auto;
   border: 0;
 }

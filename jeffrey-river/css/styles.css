@@ -1066,7 +1066,7 @@ p { margin: 0 0 1em; }
   top: 1.5rem;
   bottom: 1.5rem;
   left: 0;
-  width: 58%;
+  width: 75%;
   background: var(--sage);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   opacity: 0.75;
@@ -1078,7 +1078,7 @@ p { margin: 0 0 1em; }
   z-index: 1;
 }
 /* Per-page accent block colors + opacities */
-.page-about .section--accent-block::before { background: var(--warmgrey); opacity: 0.75; width: 100%; border-radius: 0; }
+.page-about .section--accent-block::before { background: var(--warmgrey); opacity: 0.75; }
 .page-gigs  .section--accent-block::before { background: var(--sage); opacity: 0.75; }
 .page-merch .section--accent-block::before { background: var(--moss); opacity: 0.75; }
 /* White text when accent block is strong enough */

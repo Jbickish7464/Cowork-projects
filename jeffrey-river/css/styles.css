@@ -1034,7 +1034,7 @@ p { margin: 0 0 1em; }
   content: "";
   position: absolute;
   inset: -40px -20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 500' preserveAspectRatio='none'%3E%3Cpath d='M0 60 C200 20, 400 80, 700 50 C1000 20, 1200 70, 1400 40 L1400 440 C1200 470, 1000 410, 700 450 C400 490, 200 420, 0 460 Z' fill='%237A8C99' opacity='0.09'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 500' preserveAspectRatio='none'%3E%3Cpath d='M0 60 C200 20, 400 80, 700 50 C1000 20, 1200 70, 1400 40 L1400 440 C1200 470, 1000 410, 700 450 C400 490, 200 420, 0 460 Z' fill='%237A8C99' opacity='0.25'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   pointer-events: none;
   z-index: 0;
@@ -1044,7 +1044,7 @@ p { margin: 0 0 1em; }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 400' preserveAspectRatio='none'%3E%3Cpath d='M-20 200 C80 160, 180 280, 300 220 C420 160, 480 300, 620 240 C760 180, 820 320, 960 250 C1100 180, 1160 310, 1300 230 C1380 190, 1420 260, 1440 240' fill='none' stroke='%237A8C99' stroke-width='60' stroke-linecap='round' opacity='0.05'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 400' preserveAspectRatio='none'%3E%3Cpath d='M-20 200 C80 160, 180 280, 300 220 C420 160, 480 300, 620 240 C760 180, 820 320, 960 250 C1100 180, 1160 310, 1300 230 C1380 190, 1420 260, 1440 240' fill='none' stroke='%237A8C99' stroke-width='60' stroke-linecap='round' opacity='0.12'/%3E%3C/svg%3E");
   background-size: cover;
   background-position: center;
   pointer-events: none;
@@ -1077,10 +1077,19 @@ p { margin: 0 0 1em; }
   position: relative;
   z-index: 1;
 }
-/* Per-page accent block colors */
-.page-about .section--accent-block::before { background: var(--warmgrey); }
-.page-gigs  .section--accent-block::before { background: var(--sage); }
-.page-merch .section--accent-block::before { background: var(--moss); }
+/* Per-page accent block colors + opacities */
+.page-about .section--accent-block::before { background: var(--warmgrey); opacity: 0.75; }
+.page-gigs  .section--accent-block::before { background: var(--sage); opacity: 0.50; }
+.page-merch .section--accent-block::before { background: var(--moss); opacity: 0.75; }
+/* White text when accent block is strong enough */
+.page-about .section--accent-block,
+.page-merch .section--accent-block { color: var(--white); }
+.page-about .section--accent-block h2,
+.page-about .section--accent-block h3,
+.page-merch .section--accent-block h2,
+.page-merch .section--accent-block h3 { color: var(--white); }
+.page-about .section--accent-block .eyebrow,
+.page-merch .section--accent-block .eyebrow { color: rgba(255,255,255,0.8); }
 /* Reversed variant — panel from the right */
 .section--accent-block--right::before {
   left: auto;

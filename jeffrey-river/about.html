@@ -47,43 +47,64 @@
     </nav>
   </header>
 
+  <!-- ===== COLORED HEADER ===== -->
   <section class="page-header">
     <div class="container">
       <span class="eyebrow">the story</span>
       <h1>About Jeffrey</h1>
       <p>Acoustic folk, fingerpicked and plainspoken — shaped by the rivers, ridgelines, and weather of northern Idaho.</p>
     </div>
+    <img class="page-header__photo" src="img/hero.jpg" alt="Meadow and mountains near Sandpoint" style="object-position: center 75%;" />
   </section>
 
-  <!-- ===== BIO ===== -->
+  <!-- ===== BIO — photo row (image left, text right) ===== -->
   <section class="section">
     <div class="container">
-      <div class="about">
-        <div class="about__image color-block color-block--image color-block--warmgrey">[ artist photo ]<br/>(placeholder — swap in your photo)</div>
-        <div class="about__body">
+      <div class="photo-row">
+        <div class="photo-row__image photo-row__image--placeholder">[ artist photo ]<br/>(swap in your photo)</div>
+        <div class="photo-row__text">
           <span class="eyebrow">bio</span>
           <h2>A songwriter rooted in the Panhandle</h2>
 
           <p>I've been singing since I was about three years old — mostly in church, and very loud! I picked up the guitar at ten, thanks to my grandpa bringing one home from a pawnshop one afternoon like it was no big deal. (It was a very big deal.) We ended up going on the road as a family in my later teen years, and I wrote my first song at seventeen. I haven't really stopped since.</p>
 
-          <p>Somewhere along the way, though, my ego got ahead of my talent — and my desire for fame started to crowd out the part of music that actually mattered. That version of the dream had to end. And honestly? It was the best thing that could've happened. Now, years later, I finally understand what it means to be an artist — and to have a message worth sharing.</p>
-
-          <p>I'm Jeffrey. I live in Sandpoint, Idaho with my wife Lizzie and our four daughters — Emily, Ellia, Mercy, and Melody. By day I manage construction projects. By night — usually around 2 a.m., because apparently that's when the best ideas show up — I write songs quietly in my upstairs studio while the rest of the house sleeps.</p>
-
-          <p>My music is acoustic folk with a singer-songwriter heart. Fingerpicked and rhythmic guitar, melodies that know when to move — and when to breathe, and words that try to make sense of things — faith, fatherhood, the ache of growing up, the strange productivity in slowing down. I'm shaped by writers like Andrew Peterson, Joshua Hyslop, and Hollow Coves — people who aren't afraid to write about real life.</p>
-
-          <p>There's a willow-lined river winding through a mountain meadow near my home that I walk by nearly every day. Peace and movement at the same time. That's what I want the music to feel like — an invitation to slow down, be still, and maybe find your way back to something that matters again.</p>
-
-          <p>Debut single coming fall 2026. First EP to follow in spring 2027. I'm glad you're here.</p>
+          <p>Somewhere along the way, though, my ego got ahead of my talent — and my desire for fame started to crowd out the part of music that actually mattered. That version of the dream had to end. And honestly? It was the best thing that could've happened.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SHORT BIOS ===== -->
-  <section class="section section--parchment">
+  <!-- ===== BIO CONTINUED — photo row reversed (text left, image right) ===== -->
+  <section class="section" style="background: var(--parchment);">
     <div class="container">
-      <h2 class="text-center color-block color-block--heading color-block--warmgrey" style="display:inline-block; margin-left:auto; margin-right:auto;">Short Bios</h2>
+      <div class="photo-row photo-row--reverse">
+        <div class="photo-row__image photo-row__image--placeholder">[ family / Idaho landscape photo ]<br/>(swap in your photo)</div>
+        <div class="photo-row__text">
+          <span class="eyebrow">the real story</span>
+          <h2>Built by day. Songs by night.</h2>
+
+          <p>Now, years later, I finally understand what it means to be an artist — and to have a message worth sharing. I'm Jeffrey. I live in Sandpoint, Idaho with my wife Lizzie and our four daughters — Emily, Ellia, Mercy, and Melody. By day I manage construction projects. By night — usually around 2 a.m. — I write songs quietly in my upstairs studio while the rest of the house sleeps.</p>
+
+          <p>My music is acoustic folk with a singer-songwriter heart. Fingerpicked and rhythmic guitar, melodies that know when to move — and when to breathe. I'm shaped by writers like Andrew Peterson, Joshua Hyslop, and Hollow Coves — people who aren't afraid to write about real life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE RIVER — section with river bg ===== -->
+  <section class="section section--river-bg">
+    <div class="container" style="max-width: 700px; text-align: center;">
+      <span class="eyebrow">the namesake</span>
+      <h2>Peace and movement at the same time.</h2>
+      <p>There's a willow-lined river winding through a mountain meadow near my home that I walk by nearly every day. That's what I want the music to feel like — an invitation to slow down, be still, and maybe find your way back to something that matters again.</p>
+      <p style="margin-top: 1.5rem; font-style: italic; color: var(--ash);">Debut single coming fall 2026. First EP to follow in spring 2027. I'm glad you're here.</p>
+    </div>
+  </section>
+
+  <!-- ===== SHORT BIOS ===== -->
+  <section class="section" style="background: var(--parchment);">
+    <div class="container">
+      <h2 class="text-center">Short Bios</h2>
       <hr class="divider" />
       <p class="text-center" style="max-width: 600px; margin: 0 auto 3rem;">Pre-written bios for festival programs, radio hosts, and press features — copy and paste as needed.</p>
 
@@ -112,7 +133,7 @@
       <div class="epk">
         <div class="text-center">
           <span class="eyebrow">press kit</span>
-          <h2 class="color-block color-block--heading color-block--warmgrey" style="display:inline-block;">Electronic Press Kit</h2>
+          <h2>Electronic Press Kit</h2>
           <hr class="divider" />
           <p style="max-width: 600px; margin: 0 auto;">Everything media, venues, and festival programmers need. Reach out directly for hi-res assets, full-length recordings, or interview requests.</p>
         </div>
@@ -137,7 +158,7 @@
         </div>
 
         <div class="grid" style="margin-top: 3rem;">
-          <div class="card color-block color-block--card color-block--warmgrey">
+          <div class="card">
             <h3>Press Photos</h3>
             <p>High-resolution artist photos for print and web, horizontal and vertical orientations.</p>
             <span class="merch-item__body coming-soon" style="display:inline-block; margin-top:0.5rem;">Coming soon</span>

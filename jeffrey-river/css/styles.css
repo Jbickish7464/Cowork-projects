@@ -485,7 +485,7 @@ p { margin: 0 0 1em; }
 .page-header .container {
   position: relative;
   z-index: 1;
-  padding: clamp(3rem, 8vw, 5rem) var(--gutter) clamp(2rem, 5vw, 3rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem) var(--gutter) clamp(1rem, 3vw, 1.5rem);
 }
 .page-header h1 { margin-bottom: 0.25em; color: var(--white); }
 .page-header .eyebrow { color: rgba(255,255,255,0.8); }
@@ -498,7 +498,7 @@ p { margin: 0 0 1em; }
 /* Page header photo — full-width below the text */
 .page-header__photo {
   width: 100%;
-  height: 240px;
+  height: 160px;
   object-fit: cover;
   display: block;
 }
@@ -1023,3 +1023,23 @@ p { margin: 0 0 1em; }
 .section--river-bg h2, .section--river-bg h3 { color: var(--white); }
 .section--sand-bg   { background: var(--sand); }
 .section--parchment { background: var(--parchment); }
+
+/* River silhouette background — faded, decorative */
+.section--river-bg {
+  position: relative;
+  overflow: hidden;
+}
+.section--river-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 400' preserveAspectRatio='none'%3E%3Cpath d='M-20 200 C80 160, 180 280, 300 220 C420 160, 480 300, 620 240 C760 180, 820 320, 960 250 C1100 180, 1160 310, 1300 230 C1380 190, 1420 260, 1440 240' fill='none' stroke='%237A8C99' stroke-width='80' stroke-linecap='round' opacity='0.06'/%3E%3Cpath d='M-40 260 C100 220, 200 340, 340 280 C480 220, 540 350, 680 290 C820 230, 880 360, 1020 300 C1160 240, 1220 360, 1360 290 C1400 270, 1440 310, 1460 300' fill='none' stroke='%237A8C99' stroke-width='50' stroke-linecap='round' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.section--river-bg > * {
+  position: relative;
+  z-index: 1;
+}

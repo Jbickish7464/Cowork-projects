@@ -1019,21 +1019,32 @@ p { margin: 0 0 1em; }
 /* Section-level color block backgrounds — for non-home pages */
 .section--sage-bg   { background: var(--sage); color: var(--white); }
 .section--sage-bg h2, .section--sage-bg h3 { color: var(--white); }
-.section--river-bg  { background: var(--river); color: var(--white); }
-.section--river-bg h2, .section--river-bg h3 { color: var(--white); }
+.section--river-bg  { color: var(--heading); }
+.section--river-bg h2, .section--river-bg h3 { color: var(--heading); }
 .section--sand-bg   { background: var(--sand); }
 .section--parchment { background: var(--parchment); }
 
-/* River silhouette background — faded, decorative */
+/* River silhouette background — wavy river-edge wash */
 .section--river-bg {
   position: relative;
   overflow: hidden;
 }
+/* Main river wash — curved top & bottom edges */
 .section--river-bg::before {
   content: "";
   position: absolute;
+  inset: -40px -20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 500' preserveAspectRatio='none'%3E%3Cpath d='M0 60 C200 20, 400 80, 700 50 C1000 20, 1200 70, 1400 40 L1400 440 C1200 470, 1000 410, 700 450 C400 490, 200 420, 0 460 Z' fill='%237A8C99' opacity='0.09'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Secondary thinner river line for depth */
+.section--river-bg::after {
+  content: "";
+  position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 400' preserveAspectRatio='none'%3E%3Cpath d='M-20 200 C80 160, 180 280, 300 220 C420 160, 480 300, 620 240 C760 180, 820 320, 960 250 C1100 180, 1160 310, 1300 230 C1380 190, 1420 260, 1440 240' fill='none' stroke='%237A8C99' stroke-width='80' stroke-linecap='round' opacity='0.06'/%3E%3Cpath d='M-40 260 C100 220, 200 340, 340 280 C480 220, 540 350, 680 290 C820 230, 880 360, 1020 300 C1160 240, 1220 360, 1360 290 C1400 270, 1440 310, 1460 300' fill='none' stroke='%237A8C99' stroke-width='50' stroke-linecap='round' opacity='0.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 400' preserveAspectRatio='none'%3E%3Cpath d='M-20 200 C80 160, 180 280, 300 220 C420 160, 480 300, 620 240 C760 180, 820 320, 960 250 C1100 180, 1160 310, 1300 230 C1380 190, 1420 260, 1440 240' fill='none' stroke='%237A8C99' stroke-width='60' stroke-linecap='round' opacity='0.05'/%3E%3C/svg%3E");
   background-size: cover;
   background-position: center;
   pointer-events: none;
@@ -1042,4 +1053,37 @@ p { margin: 0 0 1em; }
 .section--river-bg > * {
   position: relative;
   z-index: 1;
+}
+
+/* ---------- Accent Block — partial colored panel behind content ---------- */
+.section--accent-block {
+  position: relative;
+  overflow: hidden;
+}
+.section--accent-block::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  left: 0;
+  width: 58%;
+  background: var(--sage);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+}
+.section--accent-block > * {
+  position: relative;
+  z-index: 1;
+}
+/* Per-page accent block colors */
+.page-about .section--accent-block::before { background: var(--warmgrey); }
+.page-gigs  .section--accent-block::before { background: var(--sage); }
+.page-merch .section--accent-block::before { background: var(--moss); }
+/* Reversed variant — panel from the right */
+.section--accent-block--right::before {
+  left: auto;
+  right: 0;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }

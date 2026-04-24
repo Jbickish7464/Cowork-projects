@@ -592,7 +592,9 @@ p { margin: 0 0 1em; }
 .player {
   background: var(--white);
   border: 1px solid rgba(0,0,0,0.06);
+  border-left: 4px solid var(--river);
   border-radius: var(--radius-lg);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   padding: 1.75rem 2rem;
   display: flex;
   align-items: center;

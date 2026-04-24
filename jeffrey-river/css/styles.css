@@ -1081,15 +1081,7 @@ p { margin: 0 0 1em; }
 .page-about .section--accent-block::before { background: var(--warmgrey); opacity: 0.75; }
 .page-gigs  .section--accent-block::before { background: var(--sage); opacity: 0.75; }
 .page-merch .section--accent-block::before { background: var(--moss); opacity: 0.75; }
-/* White text when accent block is strong enough */
-.page-about .section--accent-block,
-.page-merch .section--accent-block { color: var(--white); }
-.page-about .section--accent-block h2,
-.page-about .section--accent-block h3,
-.page-merch .section--accent-block h2,
-.page-merch .section--accent-block h3 { color: var(--white); }
-.page-about .section--accent-block .eyebrow,
-.page-merch .section--accent-block .eyebrow { color: rgba(255,255,255,0.8); }
+/* Keep dark text on accent blocks so it reads over the exposed white edge */
 /* Reversed variant — panel from the right */
 .section--accent-block--right::before {
   left: auto;

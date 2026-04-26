@@ -546,6 +546,74 @@ p { margin: 0 0 1em; }
   .photo-row, .photo-row--reverse { grid-template-columns: 1fr; direction: ltr; }
 }
 
+/* ---------- Photo Banner — full-width image with offset text card ---------- */
+.photo-banner {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.photo-banner__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.photo-banner__img--placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--parchment);
+  color: var(--ash);
+  font-size: 0.9rem;
+  font-style: italic;
+  z-index: 0;
+}
+.photo-banner__card {
+  position: relative;
+  z-index: 1;
+  background: rgba(59, 42, 30, 0.88);
+  color: var(--white);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: clamp(2rem, 6vw, 6rem);
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
+}
+.photo-banner__card h2 {
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+.photo-banner__card .eyebrow {
+  color: rgba(255,255,255,0.7);
+}
+.photo-banner__card p {
+  color: rgba(255,255,255,0.9);
+  line-height: 1.7;
+}
+@media (max-width: 768px) {
+  .photo-banner {
+    min-height: auto;
+    flex-direction: column;
+  }
+  .photo-banner__img,
+  .photo-banner__img--placeholder {
+    position: relative;
+    height: 260px;
+  }
+  .photo-banner__card {
+    margin: -2rem 1rem 2rem;
+    max-width: none;
+  }
+}
+
 /* ---------- Section Dividers ---------- */
 .divider {
   width: 60px;

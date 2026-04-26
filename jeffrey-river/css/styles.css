@@ -579,7 +579,7 @@ p { margin: 0 0 1em; }
 .photo-banner__card {
   position: relative;
   z-index: 1;
-  background: rgba(59, 42, 30, 0.88);
+  background: rgba(139, 129, 120, 0.90);
   color: var(--white);
   max-width: 480px;
   margin-left: auto;

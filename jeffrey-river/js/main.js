@@ -32,15 +32,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // MailerLite signup — simple redirect fallback if no form action set
-  document.querySelectorAll(".signup__form").forEach((form) => {
-    if (!form.getAttribute("action")) {
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert(
-          "Thanks for signing up! MailerLite integration is being connected — for now, please email hello@jeffreyriver.com to join the list."
-        );
-      });
-    }
-  });
+  // MailerLite signup is handled inline on each page
 });

@@ -1152,7 +1152,7 @@ p { margin: 0 0 1em; }
   z-index: 1;
 }
 /* Per-page accent block colors + opacities */
-.page-about .eyebrow { color: var(--misty); }
+.page-about .section .eyebrow { color: var(--misty); }
 .page-about .divider { background: var(--misty); }
 .page-about .epk-stat__value { color: var(--misty); }
 .page-about .section--accent-block::before { background: var(--warmgrey); opacity: 0.75; }

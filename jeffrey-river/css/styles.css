@@ -9,8 +9,8 @@
   --clay:         #B08968;   /* Clay / warm earth */
   --river:        #7A8C99;   /* Faded river blue */
   --sand:         #EAE3D9;   /* Warm sand */
-  --moss:         #8A9E82;   /* Lighter moss green */
-  --warmgrey:     #8B8178;   /* Warm stone grey — about page accent */
+  --moss:         #9CAF9A;   /* Dusty sage green */
+  --warmgrey:     #8A8F8C;   /* Soft ash grey — about page accent */
 
   /* Darker accents for text */
   --bark:         #3B2A1E;   /* Deep bark */
@@ -579,7 +579,7 @@ p { margin: 0 0 1em; }
 .photo-banner__card {
   position: relative;
   z-index: 1;
-  background: rgba(139, 129, 120, 0.90);
+  background: rgba(138, 143, 140, 0.90);
   color: var(--white);
   max-width: 480px;
   margin-left: auto;

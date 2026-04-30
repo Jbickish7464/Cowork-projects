@@ -6,9 +6,8 @@
 :root {
   /* Accent palette — small color blocks, not full backgrounds */
   --sage:         #6F7F76;   /* Dusty meadow green */
-  --clay:         #B08968;   /* Clay / warm earth */
   --river:        #7A8C99;   /* Faded river blue */
-  --sand:         #EAE3D9;   /* Warm sand */
+  --sand:         #A89F95;   /* Warm stone — matches about page accent */
   --misty:        #7FA3B5;   /* Misty blue — light accent */
   --moss:         #9CAF9A;   /* Dusty sage green */
   --warmgrey:     #A89F95;   /* Warm stone pastel — about page accent */
@@ -100,7 +99,7 @@ p { margin: 0 0 1em; }
 }
 /* Variants */
 .color-block--sage::before   { background: var(--sage); }
-.color-block--clay::before   { background: var(--clay); }
+.color-block--clay::before   { background: var(--warmgrey); }
 .color-block--river::before  { background: var(--river); }
 .color-block--sand::before   { background: var(--sand); }
 .color-block--moss::before    { background: var(--moss); }
@@ -587,8 +586,17 @@ p { margin: 0 0 1em; }
   margin-right: clamp(2rem, 6vw, 6rem);
   padding: clamp(2rem, 4vw, 3rem);
   border-radius: var(--radius-lg);
-  border-right: 4px solid var(--misty);
-  border-top: 4px solid var(--misty);
+}
+.photo-banner__card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  right: -10px;
+  bottom: 10px;
+  background: var(--misty);
+  border-radius: var(--radius-lg);
+  z-index: -1;
 }
 .photo-banner__card h2 {
   color: var(--white);

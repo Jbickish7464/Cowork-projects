@@ -9,8 +9,9 @@
   --clay:         #B08968;   /* Clay / warm earth */
   --river:        #7A8C99;   /* Faded river blue */
   --sand:         #EAE3D9;   /* Warm sand */
+  --misty:        #7FA3B5;   /* Misty blue — light accent */
   --moss:         #9CAF9A;   /* Dusty sage green */
-  --warmgrey:     #8A8F8C;   /* Soft ash grey — about page accent */
+  --warmgrey:     #A89F95;   /* Warm stone pastel — about page accent */
 
   /* Darker accents for text */
   --bark:         #3B2A1E;   /* Deep bark */
@@ -579,7 +580,7 @@ p { margin: 0 0 1em; }
 .photo-banner__card {
   position: relative;
   z-index: 1;
-  background: rgba(138, 143, 140, 0.90);
+  background: rgba(168, 159, 149, 0.90);
   color: var(--white);
   max-width: 480px;
   margin-left: auto;
@@ -795,6 +796,7 @@ p { margin: 0 0 1em; }
   font-family: var(--font-display);
   font-size: 1.6rem;
   margin-bottom: 0.25em;
+  color: var(--misty);
 }
 .signup p { color: var(--ash); margin-bottom: 1.5rem; font-size: 0.95rem; }
 .signup__form {
@@ -818,7 +820,7 @@ p { margin: 0 0 1em; }
 }
 .signup__form input[type="email"]:focus {
   outline: none;
-  border-color: var(--sage);
+  border-color: var(--misty);
 }
 
 /* ---------- Bio / About ---------- */
@@ -1019,6 +1021,7 @@ p { margin: 0 0 1em; }
   background: var(--charcoal);
   color: rgba(255,255,255,0.7);
   padding: 3.5rem 0 1.5rem;
+  border-top: 3px solid var(--misty);
 }
 .footer-grid {
   display: grid;

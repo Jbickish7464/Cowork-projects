@@ -14,12 +14,12 @@
   --warmgrey:     #A89F95;   /* Warm stone pastel — about page accent */
 
   /* Darker accents for text */
-  --bark:         #3D3533;   /* Aged bark — greyed out */
+  --bark:         #3A302A;   /* Aged leather — muted deep brown */
   --bark-mid:     #6b4c34;   /* Mid bark */
-  --leather:      #4A3228;   /* Dark leather brown — for color blocks */
+  --leather:      #3A302A;   /* Aged leather — same as bark */
   --river-dark:   #4A6A78;
   --sage-deep:    #4E5E52;
-  --heading:      #3D2B1F;   /* Warm dark brown for headings (not pure black) */
+  --heading:      #3A302A;   /* Aged leather — same as bark/leather */
 
   /* Backgrounds — clean and crisp */
   --paper:        #FBFBFA;   /* Main bg — near-white, clean */

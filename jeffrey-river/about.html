@@ -193,11 +193,34 @@
       <div class="signup">
         <h3>Stay in the Loop</h3>
         <p>Music, shows, stories — delivered occasionally, never spammy.</p>
-        <form class="signup__form" action="https://assets.mailerlite.com/jsonp/2268893/forms/184915517427942512/subscribe" method="post" target="_blank">
+        <form class="signup__form" id="signup-form">
           <input type="email" name="fields[email]" placeholder="your@email.com" required aria-label="Email address" />
           <input type="hidden" name="ml-submit" value="1">
+          <div style="position:absolute;left:-9999px;" aria-hidden="true">
+            <input type="text" name="ml_hp_email" tabindex="-1" autocomplete="off" value="">
+          </div>
           <button type="submit" class="btn btn--primary">Subscribe</button>
         </form>
+        <p class="signup__success" id="signup-success" style="display:none; margin-top:1.5rem; font-size:1.1rem; color:var(--sage);">Welcome to the journey — check your inbox soon.</p>
+        <script>
+          document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+            var data = new FormData(form);
+            if (data.get('ml_hp_email')) return;
+            var params = new URLSearchParams(data).toString();
+            fetch('https://assets.mailerlite.com/jsonp/2268893/forms/184915517427942512/subscribe?' + params, {
+              method: 'GET',
+              mode: 'no-cors'
+            }).then(function() {
+              form.style.display = 'none';
+              document.getElementById('signup-success').style.display = 'block';
+            }).catch(function() {
+              form.style.display = 'none';
+              document.getElementById('signup-success').style.display = 'block';
+            });
+          });
+        </script>
       </div>
     </div>
   </section>

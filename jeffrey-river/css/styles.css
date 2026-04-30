@@ -645,7 +645,7 @@ p { margin: 0 0 1em; }
 }
 /* Per-page card accent colors */
 .page-music .card  { border-left-color: var(--river); }
-.page-about .card  { border-left-color: var(--warmgrey); }
+.page-about .card  { border-left-color: var(--misty); }
 .page-gigs .card   { border-left-color: var(--leather); }
 .page-merch .card  { border-left-color: var(--moss); }
 .card:hover {
@@ -954,6 +954,7 @@ p { margin: 0 0 1em; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid rgba(0,0,0,0.06);
+  border-top: 3px solid var(--misty);
   position: relative;
 }
 .merch-item__image {
@@ -975,8 +976,8 @@ p { margin: 0 0 1em; }
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ash);
-  background: var(--parchment);
+  color: var(--misty);
+  background: rgba(127, 163, 181, 0.12);
   padding: 0.25em 0.8em;
   border-radius: 999px;
   margin-top: 0.5em;
@@ -1151,6 +1152,9 @@ p { margin: 0 0 1em; }
   z-index: 1;
 }
 /* Per-page accent block colors + opacities */
+.page-about .eyebrow { color: var(--misty); }
+.page-about .divider { background: var(--misty); }
+.page-about .epk-stat__value { color: var(--misty); }
 .page-about .section--accent-block::before { background: var(--warmgrey); opacity: 0.75; }
 .page-gigs  .section--accent-block::before { background: var(--sage); opacity: 0.75; }
 .page-merch .section--accent-block::before { background: var(--moss); opacity: 0.75; }

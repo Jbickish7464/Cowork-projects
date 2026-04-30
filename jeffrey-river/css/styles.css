@@ -14,7 +14,7 @@
   --warmgrey:     #A89F95;   /* Warm stone pastel — about page accent */
 
   /* Darker accents for text */
-  --bark:         #3B3432;   /* Aged bark — neutral muted brown */
+  --bark:         #3D3533;   /* Aged bark — greyed out */
   --bark-mid:     #6b4c34;   /* Mid bark */
   --leather:      #4A3228;   /* Dark leather brown — for color blocks */
   --river-dark:   #4A6A78;
@@ -587,7 +587,8 @@ p { margin: 0 0 1em; }
   margin-right: clamp(2rem, 6vw, 6rem);
   padding: clamp(2rem, 4vw, 3rem);
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--misty);
+  border-right: 4px solid var(--misty);
+  border-top: 4px solid var(--misty);
 }
 .photo-banner__card h2 {
   color: var(--white);

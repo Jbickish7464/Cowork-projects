@@ -577,7 +577,7 @@ p { margin: 0 0 1em; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(245, 244, 242, 0.7);
+  background: #FFFFFF;
   color: var(--ash);
   font-size: 0.9rem;
   font-style: italic;
@@ -652,7 +652,7 @@ p { margin: 0 0 1em; }
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 .card {
-  background: rgba(246, 243, 241, 0.88);
+  background: #FFFFFF;
   border: 1px solid rgba(0,0,0,0.08);
   border-left: 4px solid var(--sage);
   border-radius: var(--radius-lg);
@@ -676,7 +676,7 @@ p { margin: 0 0 1em; }
 
 /* ---------- Music Player ---------- */
 .player {
-  background: rgba(246, 243, 241, 0.88);
+  background: #FFFFFF;
   border: 1px solid rgba(0,0,0,0.06);
   border-left: 4px solid var(--river);
   border-radius: var(--radius-lg);
@@ -801,7 +801,7 @@ p { margin: 0 0 1em; }
 
 /* ---------- Email signup ---------- */
 .signup {
-  background: rgba(246, 243, 241, 0.88);
+  background: #FFFFFF;
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: var(--radius-lg);
   padding: clamp(2rem, 5vw, 3rem);
@@ -948,7 +948,7 @@ p { margin: 0 0 1em; }
 .gigs--empty {
   text-align: center;
   padding: 3rem 1rem;
-  background: rgba(246, 243, 241, 0.6);
+  background: #FFFFFF;
   border-radius: var(--radius-lg);
   color: var(--ash);
 }
@@ -967,7 +967,7 @@ p { margin: 0 0 1em; }
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 .merch-item {
-  background: rgba(246, 243, 241, 0.88);
+  background: #FFFFFF;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid rgba(0,0,0,0.06);
@@ -1002,7 +1002,7 @@ p { margin: 0 0 1em; }
 
 /* ---------- Press / EPK ---------- */
 .epk {
-  background: rgba(246, 243, 241, 0.6);
+  background: #FFFFFF;
   border-radius: var(--radius-lg);
   padding: clamp(2rem, 5vw, 3rem);
 }

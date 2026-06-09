@@ -235,9 +235,7 @@ p { margin: 0 0 1em; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(245, 242, 240, 0.92);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: #FFFFFF;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 .nav {
@@ -344,9 +342,7 @@ p { margin: 0 0 1em; }
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(245, 242, 240, 0.95);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: #FFFFFF;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;

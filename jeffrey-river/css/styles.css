@@ -50,7 +50,8 @@ body {
   font-size: 17px;
   line-height: 1.7;
   color: var(--charcoal);
-  background: var(--paper);
+  background: var(--paper) url('../img/parchment-bg.jpg') repeat;
+  background-size: 600px auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -79,7 +80,7 @@ p { margin: 0 0 1em; }
 }
 .section {
   padding: clamp(4rem, 10vw, 7rem) 0;
-  background: var(--paper);
+  background: transparent;
 }
 .text-center { text-align: center; }
 

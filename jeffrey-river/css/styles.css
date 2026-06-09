@@ -50,8 +50,8 @@ body {
   font-size: 17px;
   line-height: 1.7;
   color: var(--charcoal);
-  background: var(--paper) url('../img/parchment-bg.jpg') repeat;
-  background-size: 600px auto;
+  background: var(--paper) url('../img/parchment-bg.jpg') no-repeat center top fixed;
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -531,6 +531,9 @@ p { margin: 0 0 1em; }
   border-radius: var(--radius-lg);
   aspect-ratio: 3 / 2;
   object-fit: cover;
+}
+.photo-row__image--portrait img {
+  aspect-ratio: 3 / 4;
 }
 .photo-row__image--placeholder {
   display: flex;

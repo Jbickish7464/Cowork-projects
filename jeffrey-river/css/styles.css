@@ -1377,3 +1377,23 @@ p { margin: 0 0 1em; }
   .home .hero__tagline { margin-top: 0.6rem; }
   .home .photo-row__image--portrait { max-width: 400px; margin: 0 auto 0.5rem; }
 }
+
+/* ---------- Hero: full-brightness photo, short dramatic fade on the left ---------- */
+.home .hero__photo { opacity: 1; }
+.home .hero::after {
+  background: linear-gradient(to right,
+    rgba(25,23,21,0.72) 0%,
+    rgba(25,23,21,0.5) 20%,
+    rgba(25,23,21,0.2) 32%,
+    transparent 40%);
+}
+@media (max-width: 768px) {
+  /* text spans more of the width on phones, so the fade reaches a bit further */
+  .home .hero::after {
+    background: linear-gradient(to right,
+      rgba(25,23,21,0.68) 0%,
+      rgba(25,23,21,0.42) 35%,
+      rgba(25,23,21,0.12) 60%,
+      transparent 72%);
+  }
+}

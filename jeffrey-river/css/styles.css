@@ -26,12 +26,14 @@
   --parchment:    #F2EFED;   /* Subtle warm white for sections */
   --card-bg:      #F8F6F5;   /* Card backgrounds — warm white */
   --charcoal:     #2E2E2A;
-  --ash:          #8A8F8C;
+  --text:         #4E544F;   /* Body text — readable on ivory */
+  --ash:          #6B716D;   /* Secondary text — darkened for readability */
 
   /* Typography */
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-hand:    "Caveat", "Brush Script MT", cursive;
+  --font-hand:    "Patrick Hand", "Segoe Print", cursive;   /* readable handwriting for labels */
+  --font-script:  "Caveat", "Brush Script MT", cursive;    /* footer tagline */
 
   /* Layout */
   --max-width: 1200px;
@@ -49,7 +51,7 @@ body {
   font-family: var(--font-body);
   font-size: 17px;
   line-height: 1.7;
-  color: var(--charcoal);
+  color: var(--text);
   background: var(--paper) url('../img/parchment-bg.jpg') repeat center top;
   background-size: 100% auto;
   -webkit-font-smoothing: antialiased;
@@ -149,7 +151,7 @@ p { margin: 0 0 1em; }
 /* ---------- Eyebrow (handwritten label) ---------- */
 .eyebrow {
   font-family: var(--font-hand);
-  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.3rem, 2vw, 1.5rem);
   color: var(--sage-deep);
   display: inline-block;
   margin-bottom: 0.25em;
@@ -235,8 +237,8 @@ p { margin: 0 0 1em; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #FFFFFF;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  background: var(--charcoal);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .nav {
   display: flex;
@@ -301,22 +303,14 @@ p { margin: 0 0 1em; }
   color: var(--white);
 }
 /* Per-page pick colors */
-.nav__links li:nth-child(1) a { background: var(--sage); }       /* Home = sage */
-.nav__links li:nth-child(2) a { background: var(--river); }      /* Music = river blue */
-.nav__links li:nth-child(3) a { background: var(--warmgrey); }   /* About = warm grey */
-.nav__links li:nth-child(4) a { background: var(--leather); }    /* Gigs = leather */
-.nav__links li:nth-child(5) a { background: var(--moss); }       /* Merch = moss */
-/* Active state — lift + stronger shadow */
+/* One color for every pick — darker sage marks the current page */
+.nav__links a { background: var(--sage); }
+.nav__links a:hover { background: #5D6D64; }
 .nav__links a.active {
+  background: var(--sage-deep);
   transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
-/* Hover brightness */
-.nav__links li:nth-child(1) a:hover { background: #5D6D64; }
-.nav__links li:nth-child(2) a:hover { background: #677C89; }
-.nav__links li:nth-child(3) a:hover { background: #746B63; }
-.nav__links li:nth-child(4) a:hover { background: #3A2520; }
-.nav__links li:nth-child(5) a:hover { background: #728A6C; }
 
 .nav__toggle {
   display: none;
@@ -329,7 +323,7 @@ p { margin: 0 0 1em; }
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--charcoal);
+  background: var(--white);
   margin: 5px 0;
   transition: transform .3s var(--ease), opacity .3s var(--ease);
 }
@@ -342,7 +336,7 @@ p { margin: 0 0 1em; }
     top: 100%;
     left: 0;
     right: 0;
-    background: #FFFFFF;
+    background: var(--charcoal);
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
@@ -374,7 +368,7 @@ p { margin: 0 0 1em; }
 /* ---------- Hero (photo-based, left-aligned) ---------- */
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 74vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -386,7 +380,7 @@ p { margin: 0 0 1em; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 70%;
+  object-position: center 80%;
   opacity: 0.88;
   filter: saturate(1.05);
 }
@@ -397,7 +391,7 @@ p { margin: 0 0 1em; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(248,247,244,0.2) 0%, rgba(248,247,244,0.03) 50%, transparent 100%);
+  background: linear-gradient(to right, rgba(30,28,26,0.45) 0%, rgba(30,28,26,0.2) 40%, transparent 70%);
   pointer-events: none;
 }
 .hero__inner {
@@ -649,18 +643,15 @@ p { margin: 0 0 1em; }
 }
 .card {
   background: #FFFFFF;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-left: 4px solid var(--sage);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-top: 3px solid var(--sage);
   border-radius: var(--radius-lg);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
   padding: 2rem;
   position: relative;
   transition: transform .3s var(--ease), box-shadow .3s var(--ease);
 }
 /* Per-page card accent colors */
-.page-music .card  { border-left-color: var(--river); }
-.page-about .card  { border-left-color: var(--misty); }
-.page-gigs .card   { border-left-color: var(--leather); }
-.page-merch .card  { border-left-color: var(--moss); }
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 48px rgba(0,0,0,0.06);
@@ -1177,4 +1168,212 @@ p { margin: 0 0 1em; }
   left: auto;
   right: 0;
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+/* ==========================================================================
+   HOME PAGE (Nov 2026 rebuild) — tighter spacing, music first, more personal
+   ========================================================================== */
+.home .section { padding: clamp(2.25rem, 4.5vw, 3.25rem) 0; }
+.home .hero { min-height: 62vh; }
+.home .eyebrow { display: block; margin-bottom: 0.35rem; }
+.rule {
+  width: 56px; height: 3px; border: 0; margin: 0.9rem 0 1.4rem;
+  background: var(--sage); border-radius: 2px;
+}
+.btn--sage { background: var(--sage); color: var(--white); border-color: var(--sage); }
+.btn--sage:hover { background: var(--sage-deep); border-color: var(--sage-deep); color: var(--white); transform: translateY(-1px); }
+
+/* Latest release */
+.release {
+  display: grid;
+  grid-template-columns: minmax(240px, 380px) 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.release__cover img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+  border-radius: var(--radius-lg); display: block;
+}
+.release__cover { position: relative; z-index: 0; }
+.release__cover::before {
+  content: ""; position: absolute; z-index: -1;
+  inset: 16px -16px -16px 16px;
+  background: var(--sage); border-radius: var(--radius-lg);
+}
+.release h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin: 0; }
+.release__meta {
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--sage-deep); margin-bottom: 1rem;
+}
+.release p { font-size: 1.05rem; max-width: 480px; }
+.stream-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+.stream-links a {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  padding: 0.6em 1.1em; border: 1.5px solid rgba(46,46,42,0.25);
+  border-radius: 999px; background: var(--white);
+  font-size: 0.85rem; font-weight: 500; color: var(--charcoal);
+  transition: all .2s var(--ease);
+}
+.stream-links a:hover { border-color: var(--sage); color: var(--sage-deep); }
+.stream-links svg { width: 16px; height: 16px; fill: currentColor; }
+
+/* Meet Jeffrey */
+.home .photo-row { padding: 0; gap: clamp(2rem, 5vw, 4rem); }
+.home .photo-row__text p { font-size: 1.05rem; line-height: 1.75; }
+
+/* Lyric */
+.lyric { text-align: center; padding: clamp(2rem, 5vw, 3.5rem) 0 0; }
+.lyric__line {
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(1.7rem, 4vw, 2.6rem); color: var(--heading);
+  margin: 0 0 0.6rem; line-height: 1.25;
+}
+.lyric__ref { font-size: 0.9rem; color: var(--ash); letter-spacing: 0.04em; }
+.lyric .rule { margin: 1.2rem auto 0; }
+
+/* Signup — clean, centered */
+.home .signup { max-width: 680px; margin: 0 auto; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+.home .signup h3 { color: var(--heading); font-size: clamp(1.6rem, 3vw, 2rem); }
+.home .signup p { color: var(--text); font-size: 1rem; }
+
+@media (max-width: 768px) {
+  .release { grid-template-columns: 1fr; }
+  .release__cover { max-width: 340px; margin: 0 auto 1rem; }
+}
+
+/* ---------- Dark sticky header: brand · social icons · picks ---------- */
+.site-header .nav__brand { color: var(--white); }
+.site-header .nav__brand span { color: var(--misty); }
+.site-header .nav__brand img { border-radius: 50%; }
+.nav__social { display: flex; gap: 0.9rem; align-items: center; }
+.nav__social a {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.22);
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all .2s var(--ease);
+}
+.nav__social a:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.08); }
+.nav__social svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.75); }
+@media (max-width: 900px) { .nav__social { gap: 0.5rem; } .nav__social a { width: 30px; height: 30px; } }
+@media (max-width: 768px) {
+  .nav { flex-wrap: wrap; }
+  .nav__social { order: 3; width: 100%; justify-content: center; padding-top: 0.6rem; }
+}
+
+/* ---------- Home hero tweaks ---------- */
+.home .hero { min-height: 72vh; }
+.home .hero__photo { object-position: center 55%; }
+.home .hero::after {
+  background: linear-gradient(to right, rgba(30,28,26,0.58) 0%, rgba(30,28,26,0.3) 38%, transparent 68%);
+}
+.home .hero__inner { max-width: none; padding-left: clamp(1.5rem, 5vw, 4.5rem); }
+.home .hero__tagline { max-width: none; margin-bottom: 0; }
+
+/* ---------- Expandable story ---------- */
+.story-more { display: none; max-width: 760px; margin: 2.5rem auto 0; }
+.story-more.is-open { display: block; }
+.story-more h3 { margin: 2rem 0 0.6rem; }
+.story-more h3:first-child { margin-top: 0; }
+.story-more p { font-size: 1.05rem; line-height: 1.8; }
+
+/* ---------- Coming soon pages ---------- */
+.coming-soon { text-align: center; padding: clamp(4rem, 12vw, 8rem) 0; }
+.coming-soon h1 { margin-bottom: 0.4em; }
+.coming-soon p { font-size: 1.1rem; max-width: 520px; margin: 0 auto 2rem; }
+
+.footer__tag { font-family: var(--font-script); }
+
+/* ---------- Home refinements (Nov 20) ---------- */
+/* Desktop hero: show the willow, river and grass, not just sky */
+@media (min-width: 769px) {
+  .home .hero { min-height: 80vh; }
+  .home .hero__photo { object-position: center 72%; }
+}
+/* Smaller labels so they don't compete with headings */
+.home .eyebrow { font-size: clamp(1.1rem, 1.6vw, 1.25rem); }
+/* Photo color blocks: same size + offset as the Just Be cover (peeks right & bottom) */
+.home .photo-row__image.color-block--image::before {
+  width: auto; height: auto;
+  top: 16px; left: 16px; right: -16px; bottom: -16px;
+  border-radius: var(--radius-lg);
+}
+
+/* ---------- Header spacing: brand far left · icons dead center · picks far right ---------- */
+@media (min-width: 769px) {
+  .site-header .nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    max-width: none;
+    padding: 1rem clamp(1.25rem, 3vw, 3rem);
+  }
+  .site-header .nav__brand { justify-self: start; }
+  .site-header .nav__social { justify-self: center; }
+  .site-header .nav__links { justify-self: end; }
+}
+
+/* Thin misty-blue line under the hero (matches the footer) */
+.hero { border-bottom: 3px solid var(--misty); }
+
+/* ---------- Just Be sneak preview player ---------- */
+.preview {
+  display: flex; align-items: center; gap: 1rem;
+  max-width: 420px; margin-top: 1.25rem;
+  padding: 0.75rem 1.1rem 0.75rem 0.75rem;
+  background: var(--white); border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 999px; box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+.preview__btn {
+  flex: none; width: 46px; height: 46px; border-radius: 50%;
+  border: 0; cursor: pointer; background: var(--sage); color: var(--white);
+  font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center;
+  transition: background .2s var(--ease);
+}
+.preview__btn:hover { background: var(--sage-deep); }
+.preview__body { flex: 1; min-width: 0; }
+.preview__label { font-size: 0.85rem; font-weight: 500; color: var(--charcoal); margin-bottom: 0.4rem; }
+.preview__bar { height: 4px; background: rgba(0,0,0,0.08); border-radius: 2px; cursor: pointer; }
+.preview__bar span { display: block; height: 100%; width: 0; background: var(--sage); border-radius: 2px; transition: width .2s linear; }
+
+/* ---------- Nov 20 tweaks ---------- */
+@media (min-width: 769px) {
+  .site-header .nav { padding: 1rem clamp(2rem, 5.5vw, 6rem); }
+}
+/* Text starts near the top of each photo, like the other sections */
+.home .photo-row { align-items: start; }
+.home .photo-row__text { padding-top: 1.5rem; }
+/* Slightly smaller portrait of Jeffrey */
+@media (min-width: 769px) {
+  .home .photo-row__image--portrait { max-width: 440px; width: 100%; justify-self: end; }
+}
+
+/* ---------- Mobile header: icons on top, brand + picks always visible ---------- */
+.release__follow { margin: 1.5rem 0 0; }
+.release__follow + .stream-links { margin-top: 0.75rem; }
+@media (max-width: 768px) {
+  .site-header .nav { flex-wrap: wrap; padding: 0.6rem 1rem 0.75rem; }
+  .site-header .nav__social {
+    order: -1; width: 100%; justify-content: center;
+    padding: 0 0 0.6rem; margin-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .site-header .nav__toggle { display: none; }
+  .site-header .nav__brand { font-size: 1.2rem; gap: 0.5rem; }
+  .site-header .nav__brand img { height: 46px; }
+  .site-header .nav__links {
+    position: static; transform: none; opacity: 1; pointer-events: auto;
+    background: none; padding: 0; box-shadow: none;
+    width: auto; gap: 0.35rem; backdrop-filter: none; -webkit-backdrop-filter: none;
+  }
+  .site-header .nav__links a { width: 46px; height: 50px; font-size: 0.55rem; }
+}
+
+/* ---------- Mobile: tighter hero + smaller portrait ---------- */
+@media (max-width: 768px) {
+  .home .hero { min-height: 58vh; }
+  .home .hero__photo { object-position: 35% center; }
+  .home .hero__inner { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .home .hero__eyebrow { margin-bottom: 0.5rem; }
+  .home .hero h1 { margin-bottom: 0.2rem; }
+  .home .hero__tagline { margin-top: 0.6rem; }
+  .home .photo-row__image--portrait { max-width: 400px; margin: 0 auto 0.5rem; }
 }

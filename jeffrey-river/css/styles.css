@@ -1397,3 +1397,30 @@ p { margin: 0 0 1em; }
       transparent 72%);
   }
 }
+
+/* ---------- Expandable story: land on it + fade in ---------- */
+.story-more, #about { scroll-margin-top: 170px; }
+@media (max-width: 768px) { .story-more, #about { scroll-margin-top: 150px; } }
+.story-more.is-open { animation: storyIn .6s var(--ease) both; }
+@keyframes storyIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.story-more__close { margin-top: 1.5rem; }
+
+/* ---------- About: story wraps beside the photo, then spreads full width ---------- */
+.about-flow { max-width: 1100px; margin: 0 auto; }
+.about-flow::after { content: ""; display: block; clear: both; }
+.about-flow > .eyebrow { padding-top: 1.5rem; }
+.about-flow p { font-size: 1.05rem; line-height: 1.8; }
+.about-flow .story-more { max-width: none; margin: 1.75rem 0 0; }
+.about-flow__photo.photo-row__image--portrait {
+  float: right;
+  width: 42%; max-width: 440px;
+  margin: 0 16px 2.5rem clamp(2rem, 4vw, 3.5rem);
+  justify-self: auto;
+}
+@media (max-width: 768px) {
+  .about-flow__photo.photo-row__image--portrait {
+    float: none; width: 100%; max-width: 400px;
+    margin: 0 auto 2.25rem;
+  }
+  .about-flow > .eyebrow { padding-top: 0; }
+}

@@ -154,24 +154,16 @@
           <h3>Peace on the path</h3>
           <p>There's a place near our house that I walk by almost every day. A willow tree in a meadow, with a river and mountains in the backdrop. It somehow embodies everything I stand for: grounded and rooted in faith, consistency, and belonging, but journeying onward to a destination in the distance.</p>
           <p>My first name Jeffrey means peace. My middle name River represents journey, reflection, and connection. That's at the heart of what I write about. I love music and the emotions and response it mysteriously awakens in our souls. And I am thankful to get to share some small part of all of it with you!</p>
-          <button type="button" class="btn btn--outline story-more__close" id="story-close">Show Less</button>
         </div>
       </div>
       <script>
         (function() {
-          var openBtn = document.getElementById('story-toggle');
-          var closeBtn = document.getElementById('story-close');
+          var btn = document.getElementById('story-toggle');
           var more = document.getElementById('story-more');
-          openBtn.addEventListener('click', function() {
-            more.classList.add('is-open');
-            openBtn.style.display = 'none';
-            openBtn.setAttribute('aria-expanded', 'true');
-          });
-          closeBtn.addEventListener('click', function() {
-            more.classList.remove('is-open');
-            openBtn.style.display = '';
-            openBtn.setAttribute('aria-expanded', 'false');
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          btn.addEventListener('click', function() {
+            var open = more.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', open);
+            btn.textContent = open ? 'Show Less' : 'More of My Story';
           });
         })();
       </script>

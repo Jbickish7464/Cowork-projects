@@ -1424,3 +1424,52 @@ p { margin: 0 0 1em; }
   }
   .about-flow > .eyebrow { padding-top: 0; }
 }
+
+/* ---------- Mobile fixes (Nov 21) ---------- */
+/* A little more space between the name and the tagline */
+.home .hero__tagline { margin-top: 1.5rem; }
+@media (max-width: 768px) {
+  /* Name stays put; only the tagline drops lower (extra top padding offsets the centering shift) */
+  .home .hero__inner { padding-top: 3.9rem; padding-bottom: 2.5rem; }
+  .home .hero__tagline { font-size: 1.15rem; margin-top: 2rem; }
+
+  /* Streaming buttons: all three fit on one row */
+  .stream-links { gap: 0.4rem; flex-wrap: nowrap; }
+  .stream-links a { padding: 0.5em 0.75em; font-size: 0.78rem; gap: 0.35em; white-space: nowrap; }
+  .stream-links svg { width: 14px; height: 14px; }
+
+  /* About: title first, then photo, then the paragraph */
+  .about-flow { display: flex; flex-direction: column; }
+  .about-flow > * { order: 5; }
+  .about-flow > .eyebrow { order: 1; }
+  .about-flow > h2 { order: 2; }
+  .about-flow > .rule { order: 3; }
+  .about-flow > .about-flow__photo { order: 4; }
+  .about-flow > .btn { align-self: flex-start; }
+  .about-flow::after { display: none; }
+}
+
+/* Mobile: every section reads title → photo → text */
+@media (max-width: 768px) {
+  .release, .home .photo-row { display: flex; flex-direction: column; }
+  .release__text, .home .photo-row__text { display: contents; }
+  .release > *, .release__text > *, .home .photo-row > *, .home .photo-row__text > * { order: 5; }
+  .release__text > .eyebrow, .home .photo-row__text > .eyebrow { order: 1; }
+  .release__text > h2, .home .photo-row__text > h2 { order: 2; }
+  .release__text > .rule, .home .photo-row__text > .rule { order: 3; }
+  .release__cover, .home .photo-row__image { order: 4; }
+  .release__cover { width: 100%; max-width: 340px; margin: 0.25rem auto 2.25rem; }
+  .home .photo-row__image { width: calc(100% - 16px); margin: 0.25rem 16px 2.25rem 0; }
+}
+
+/* Mobile: match the tight About layout — no grid gap, everything left-aligned */
+@media (max-width: 768px) {
+  .release, .home .photo-row { gap: 0; align-items: stretch; text-align: left; }
+  .release h2, .home .photo-row__text h2 { margin: 0; }
+  .release__cover {
+    width: calc(100% - 16px); max-width: 400px;
+    margin: 0.25rem 16px 2.25rem 0; align-self: flex-start;
+  }
+  .home .photo-row__image { align-self: flex-start; max-width: 400px; }
+  .release p, .release__meta { max-width: none; }
+}
